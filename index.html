@@ -1,0 +1,1261 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Libro Digital de CSS3</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap">
+</head>
+<body>
+    <div class="container">
+        <header class="animate-fade-in">
+            <h1>Guía Interactiva de CSS3</h1>
+            <p>Explora, practica y aprende</p>
+        </header>
+
+        <main class="book-container animate-slide-up">
+            <div class="book">
+                <!-- Menú móvil -->
+                <div class="mobile-menu">
+                    <button class="menu-toggle">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </button>
+                    <div class="current-page-title">Portada</div>
+                </div>
+
+                <!-- Pestañas laterales -->
+                <div class="tabs">
+                    <div class="tab animate-tab" data-category="box-model">Box model</div>
+                    <div class="tab animate-tab" data-category="background">Background</div>
+                    <div class="tab animate-tab" data-category="fonts">Fonts</div>
+                    <div class="tab animate-tab" data-category="misc">Misc</div>
+                    <div class="tab animate-tab" data-category="layouts">Layouts/Flexbox</div>
+                    <div class="tab animate-tab" data-category="grid">Grid CSS</div>
+                    <div class="tab animate-tab" data-category="effects">Effects</div>
+                    <div class="tab animate-tab" data-category="responsive">Rules/Responsive</div>
+                    <div class="tab animate-tab" data-category="animation">Animation</div>
+                </div>
+
+                <!-- Páginas del libro -->
+                <div class="pages">
+                    <!-- Portada -->
+                    <div class="page cover active">
+                        <div class="cover-content animate-scale-in">
+                            <h2 class="tt-css">CSS3</h2>
+                            <h3>Guía de Propiedades</h3>
+                            <p>Haz clic en las pestañas o pasa las páginas para explorar</p>
+                            <div class="cover-decoration"></div>
+                        </div>
+                    </div>
+
+                    <!-- Página de Box Model -->
+                    <div class="page" id="box-model">
+                        <div class="page-content">
+                            <h2 class="animate-title">Box Model</h2>
+                            <p class="intro-text">El modelo de caja es fundamental en CSS. Define cómo se estructura cada elemento en la página, considerando el contenido, padding, borde y margen.</p>
+                            
+                            <div class="box-model-diagram">
+                                <div class="margin-box">
+                                    <span>Margin</span>
+                                    <div class="border-box">
+                                        <span>Border</span>
+                                        <div class="padding-box">
+                                            <span>Padding</span>
+                                            <div class="content-box">
+                                                <span>Content</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="property-list">
+                                <div class="property animate-fade-in">
+                                    <h3>width</h3>
+                                    <p>Define el ancho del contenido de un elemento (sin incluir padding, borde o margen).</p>
+                                    <p><strong>Valores posibles:</strong> longitud (px, em, rem), porcentaje (%), auto, max-content, min-content, fit-content</p>
+                                    <div class="example">
+                                        <code>.elemento { width: 200px; }</code>
+                                        <div class="visual-example">
+                                            <div class="box width-example" title="Haz clic para cambiar el ancho"></div>
+                                        </div>
+                                    </div>
+                                    <p class="tip"><strong>Consejo:</strong> Cuando se usa box-sizing: border-box, el width incluye el padding y el borde.</p>
+                                </div>
+                                
+                                <div class="property animate-fade-in">
+                                    <h3>height</h3>
+                                    <p>Define la altura del contenido de un elemento (sin incluir padding, borde o margen).</p>
+                                    <p><strong>Valores posibles:</strong> longitud (px, em, rem), porcentaje (%), auto, max-content, min-content, fit-content</p>
+                                    <div class="example">
+                                        <code>.elemento { height: 100px; }</code>
+                                        <div class="visual-example">
+                                            <div class="box height-example" title="Haz clic para cambiar la altura"></div>
+                                        </div>
+                                    </div>
+                                    <p class="tip"><strong>Consejo:</strong> Es mejor dejar que los elementos determinen su altura naturalmente cuando sea posible.</p>
+                                </div>
+                                
+                                <div class="property animate-fade-in">
+                                    <h3>min-width / max-width</h3>
+                                    <p>Establecen el ancho mínimo y máximo de un elemento, útil para diseño responsive.</p>
+                                    <p><strong>Valores posibles:</strong> longitud (px, em, rem), porcentaje (%), none (para max-width)</p>
+                                    <div class="example">
+                                        <code>.elemento { 
+    min-width: 100px;
+    max-width: 300px; 
+}</code>
+                                        <div class="visual-example">
+                                            <div class="box min-max-width-example" title="Redimensiona la ventana para ver el efecto"></div>
+                                        </div>
+                                    </div>
+                                    <p class="tip"><strong>Caso de uso:</strong> Limitar el ancho de un párrafo para mantener la legibilidad en pantallas grandes.</p>
+                                </div>
+                                
+                                <div class="property animate-fade-in">
+                                    <h3>min-height / max-height</h3>
+                                    <p>Establecen la altura mínima y máxima de un elemento.</p>
+                                    <p><strong>Valores posibles:</strong> longitud (px, em, rem), porcentaje (%), none (para max-height)</p>
+                                    <div class="example">
+                                        <code>.elemento { 
+    min-height: 50px;
+    max-height: 200px; 
+}</code>
+                                        <div class="visual-example">
+                                            <div class="box min-max-height-example" title="El contenido se desbordará si excede max-height"></div>
+                                        </div>
+                                    </div>
+                                    <p class="tip"><strong>Caso de uso:</strong> Crear áreas de contenido con altura fija pero que puedan crecer hasta cierto punto.</p>
+                                </div>
+                                
+                                <div class="property animate-fade-in">
+                                    <h3>margin</h3>
+                                    <p>Define el espacio exterior alrededor de un elemento, creando distancia entre este y otros elementos.</p>
+                                    <p><strong>Valores posibles:</strong> longitud (px, em, rem), porcentaje (%), auto</p>
+                                    <div class="example">
+                                        <code>/* Todos los lados */
+.elemento { margin: 10px; }
+
+/* Vertical | Horizontal */
+.elemento { margin: 10px 20px; }
+
+/* Superior | Horizontal | Inferior */
+.elemento { margin: 10px 20px 15px; }
+
+/* Superior | Derecha | Inferior | Izquierda */
+.elemento { margin: 10px 20px 15px 25px; }</code>
+                                        <div class="visual-example">
+                                            <div class="margin-example-container">
+                                                <div class="box margin-example" title="Haz clic para cambiar el margen"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="tip"><strong>Consejo:</strong> Los márgenes verticales adyacentes se colapsan en CSS, tomando el valor del margen más grande.</p>
+                                </div>
+                                
+                                <div class="property animate-fade-in">
+                                    <h3>padding</h3>
+                                    <p>Define el espacio interior entre el contenido de un elemento y su borde.</p>
+                                    <p><strong>Valores posibles:</strong> longitud (px, em, rem), porcentaje (%)</p>
+                                    <div class="example">
+                                        <code>/* Todos los lados */
+.elemento { padding: 10px; }
+
+/* Vertical | Horizontal */
+.elemento { padding: 10px 20px; }
+
+/* Superior | Horizontal | Inferior */
+.elemento { padding: 10px 20px 15px; }
+
+/* Superior | Derecha | Inferior | Izquierda */
+.elemento { padding: 10px 20px 15px 25px; }</code>
+                                        <div class="visual-example">
+                                            <div class="box padding-example" title="Haz clic para cambiar el padding">
+                                                <span>Contenido</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="tip"><strong>Consejo:</strong> A diferencia de los márgenes, el padding no se colapsa y siempre suma al tamaño del elemento (a menos que uses box-sizing: border-box).</p>
+                                </div>
+                                
+                                <div class="property animate-fade-in">
+                                    <h3>box-sizing</h3>
+                                    <p>Determina cómo se calcula el ancho y alto total de un elemento.</p>
+                                    <p><strong>Valores posibles:</strong> content-box, border-box</p>
+                                    <div class="example">
+                                        <code>/* El ancho/alto solo incluye el contenido */
+.elemento { box-sizing: content-box; }
+
+/* El ancho/alto incluye contenido, padding y borde */
+.elemento { box-sizing: border-box; }</code>
+                                        <div class="visual-example">
+                                            <div class="box-sizing-comparison">
+                                                <div class="box content-box-example" title="content-box">
+                                                    <span>content-box</span>
+                                                </div>
+                                                <div class="box border-box-example" title="border-box">
+                                                    <span>border-box</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="tip"><strong>Práctica recomendada:</strong> Muchos desarrolladores aplican box-sizing: border-box a todos los elementos para facilitar el cálculo de dimensiones.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Página de Background -->
+                    <div class="page" id="background">
+                        <div class="page-content">
+                            <h2 class="animate-title">Background</h2>
+                            <p class="intro-text">Las propiedades de fondo permiten controlar el color, imagen y comportamiento del fondo de los elementos.</p>
+                            
+                            <div class="property-list">
+                                <div class="property animate-fade-in">
+                                    <h3>background-color</h3>
+                                    <p>Define el color de fondo de un elemento.</p>
+                                    <p><strong>Valores posibles:</strong> nombre de color, código hexadecimal, rgb(), rgba(), hsl(), hsla(), transparent</p>
+                                    <div class="example">
+                                        <code>/* Nombre de color */
+.elemento { background-color: blue; }
+
+/* Hexadecimal */
+.elemento { background-color: #3498db; }
+
+/* RGB con transparencia */
+.elemento { background-color: rgba(52, 152, 219, 0.5); }
+
+/* HSL (Hue, Saturation, Lightness) */
+.elemento { background-color: hsl(204, 70%, 53%); }</code>
+                                        <div class="visual-example">
+                                            <div class="box bg-color-example" title="Haz clic para cambiar el color"></div>
+                                        </div>
+                                    </div>
+                                    <p class="tip"><strong>Consejo:</strong> Usa rgba() o hsla() cuando necesites transparencia en el color de fondo.</p>
+                                </div>
+                                
+                                <div class="property animate-fade-in">
+                                    <h3>background-image</h3>
+                                    <p>Establece una o más imágenes como fondo de un elemento.</p>
+                                    <p><strong>Valores posibles:</strong> url(), gradientes (linear-gradient, radial-gradient), none</p>
+                                    <div class="example">
+                                        <code>/* Imagen de fondo */
+.elemento { background-image: url('imagen.jpg'); }
+
+/* Gradiente lineal */
+.elemento { background-image: linear-gradient(to right, #3498db, #2c3e50); }
+
+/* Gradiente radial */
+.elemento { background-image: radial-gradient(circle, #3498db, #2c3e50); }
+
+/* Múltiples fondos */
+.elemento { 
+    background-image: 
+        url('patrón.png'),
+        linear-gradient(to right, #3498db, #2c3e50);
+}</code>
+                                        <div class="visual-example">
+                                            <div class="box bg-image-example" title="Haz clic para cambiar el fondo"></div>
+                                        </div>
+                                    </div>
+                                    <p class="tip"><strong>Consejo:</strong> Puedes combinar múltiples imágenes y gradientes separándolos con comas. Se mostrarán en el orden listado (el primero arriba).</p>
+                                </div>
+                                
+                                <div class="property animate-fade-in">
+                                    <h3>background-size</h3>
+                                    <p>Controla el tamaño de la imagen de fondo.</p>
+                                    <p><strong>Valores posibles:</strong> auto, longitud (px, em, rem), porcentaje (%), cover, contain</p>
+                                    <div class="example">
+                                        <code>/* Tamaño específico */
+.elemento { background-size: 200px 100px; }
+
+/* Porcentaje relativo al contenedor */
+.elemento { background-size: 50% 50%; }
+
+/* Cubrir todo el contenedor (puede recortar) */
+.elemento { background-size: cover; }
+
+/* Contener la imagen completa (puede dejar espacios) */
+.elemento { background-size: contain; }</code>
+                                        <div class="visual-example">
+                                            <div class="bg-size-examples">
+                                                <div class="box bg-size-auto" title="auto">
+                                                    <span>auto</span>
+                                                </div>
+                                                <div class="box bg-size-cover" title="cover">
+                                                    <span>cover</span>
+                                                </div>
+                                                <div class="box bg-size-contain" title="contain">
+                                                    <span>contain</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="tip"><strong>Caso de uso:</strong> background-size: cover es ideal para imágenes de fondo que deben llenar completamente un elemento, como cabeceras o héroes.</p>
+                                </div>
+                                
+                                <div class="property animate-fade-in">
+                                    <h3>background-position</h3>
+                                    <p>Define la posición inicial de la imagen de fondo.</p>
+                                    <p><strong>Valores posibles:</strong> palabras clave (top, right, bottom, left, center), longitud (px, em, rem), porcentaje (%)</p>
+                                    <div class="example">
+                                        <code>/* Palabras clave */
+.elemento { background-position: top right; }
+
+/* Porcentajes */
+.elemento { background-position: 25% 75%; }
+
+/* Valores específicos */
+.elemento { background-position: 10px 20px; }</code>
+                                        <div class="visual-example">
+                                            <div class="box bg-position-example" title="Haz clic para cambiar la posición"></div>
+                                        </div>
+                                    </div>
+                                    <p class="tip"><strong>Consejo:</strong> Los porcentajes se refieren tanto al tamaño del elemento como al de la imagen. 0% 0% es la esquina superior izquierda, 100% 100% es la esquina inferior derecha.</p>
+                                </div>
+                                
+                                <div class="property animate-fade-in">
+                                    <h3>background-repeat</h3>
+                                    <p>Controla cómo se repite la imagen de fondo.</p>
+                                    <p><strong>Valores posibles:</strong> repeat, repeat-x, repeat-y, no-repeat, space, round</p>
+                                    <div class="example">
+                                        <code>/* Repetir en ambas direcciones */
+.elemento { background-repeat: repeat; }
+
+/* Repetir solo horizontalmente */
+.elemento { background-repeat: repeat-x; }
+
+/* Repetir solo verticalmente */
+.elemento { background-repeat: repeat-y; }
+
+/* Sin repetición */
+.elemento { background-repeat: no-repeat; }
+
+/* Espaciar las repeticiones uniformemente */
+.elemento { background-repeat: space; }
+
+/* Ajustar las repeticiones para evitar recortes */
+.elemento { background-repeat: round; }</code>
+                                        <div class="visual-example">
+                                            <div class="bg-repeat-examples">
+                                                <div class="box bg-repeat" title="repeat">
+                                                    <span>repeat</span>
+                                                </div>
+                                                <div class="box bg-repeat-x" title="repeat-x">
+                                                    <span>repeat-x</span>
+                                                </div>
+                                                <div class="box bg-no-repeat" title="no-repeat">
+                                                    <span>no-repeat</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="property animate-fade-in">
+                                    <h3>background (propiedad abreviada)</h3>
+                                    <p>Permite establecer todas las propiedades de fondo en una sola declaración.</p>
+                                    <div class="example">
+                                        <code>/* Orden: color imagen posición/tamaño repeat attachment */
+.elemento { 
+    background: #3498db url('imagen.jpg') center/cover no-repeat fixed;
+}</code>
+                                        <div class="visual-example">
+                                            <div class="box bg-shorthand-example"></div>
+                                        </div>
+                                    </div>
+                                    <p class="tip"><strong>Consejo:</strong> No es necesario incluir todas las propiedades en la abreviatura. Las omitidas tomarán sus valores por defecto.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Página de Fonts -->
+                    <div class="page" id="fonts">
+                        <div class="page-content">
+                            <h2 class="animate-title">Fonts</h2>
+                            <p class="intro-text">Las propiedades de fuente permiten controlar la apariencia del texto, incluyendo el tipo de letra, tamaño, peso y estilo.</p>
+                            
+                            <div class="property-list">
+                                <div class="property animate-fade-in">
+                                    <h3>font-family</h3>
+                                    <p>Define la familia de fuentes que se utilizará para mostrar el texto.</p>
+                                    <p><strong>Valores posibles:</strong> nombre de fuente específica, familia genérica (serif, sans-serif, monospace, cursive, fantasy), lista de fuentes</p>
+                                    <div class="example">
+                                        <code>/* Fuente específica con alternativas */
+.elemento { font-family: 'Roboto', Arial, sans-serif; }
+
+/* Familia genérica */
+.elemento { font-family: sans-serif; }
+
+/* Fuente con espacios en el nombre */
+.elemento { font-family: 'Times New Roman', Times, serif; }</code>
+                                        <div class="visual-example">
+                                            <div class="font-family-examples">
+                                                <p class="font-serif">Texto con serif</p>
+                                                <p class="font-sans-serif">Texto con sans-serif</p>
+                                                <p class="font-monospace">Texto con monospace</p>
+                                                <p class="font-cursive">Texto con cursive</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="tip"><strong>Consejo:</strong> Siempre incluye una familia genérica al final de la lista como respaldo en caso de que las fuentes específicas no estén disponibles.</p>
+                                </div>
+                                
+                                <div class="property animate-fade-in">
+                                    <h3>font-size</h3>
+                                    <p>Define el tamaño del texto.</p>
+                                    <p><strong>Valores posibles:</strong> longitud (px, em, rem, pt), porcentaje (%), palabras clave (small, medium, large, etc.)</p>
+                                    <div class="example">
+                                        <code>/* Tamaño absoluto en píxeles */
+.elemento { font-size: 16px; }
+
+/* Tamaño relativo al elemento padre */
+.elemento { font-size: 1.5em; }
+
+/* Tamaño relativo al elemento raíz (html) */
+.elemento { font-size: 1.2rem; }
+
+/* Tamaño en porcentaje */
+.elemento { font-size: 120%; }
+
+/* Palabras clave */
+.elemento { font-size: large; }</code>
+                                        <div class="visual-example">
+                                            <div class="font-size-examples">
+                                                <p class="font-size-small">Texto pequeño (12px)</p>
+                                                <p class="font-size-medium">Texto mediano (16px)</p>
+                                                <p class="font-size-large">Texto grande (24px)</p>
+                                                <p class="font-size-xl">Texto extra grande (32px)</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="tip"><strong>Práctica recomendada:</strong> Usa unidades relativas como rem para mejorar la accesibilidad y permitir que el texto se ajuste a las preferencias del usuario.</p>
+                                </div>
+                                
+                                <div class="property animate-fade-in">
+                                    <h3>font-weight</h3>
+                                    <p>Define el grosor o peso de la fuente.</p>
+                                    <p><strong>Valores posibles:</strong> normal, bold, bolder, lighter, 100-900</p>
+                                    <div class="example">
+                                        <code>/* Valores predefinidos */
+.elemento { font-weight: normal; } /* Equivale a 400 */
+.elemento { font-weight: bold; } /* Equivale a 700 */
+
+/* Valores numéricos */
+.elemento { font-weight: 300; } /* Light */
+.elemento { font-weight: 400; } /* Regular */
+.elemento { font-weight: 500; } /* Medium */
+.elemento { font-weight: 700; } /* Bold */
+.elemento { font-weight: 900; } /* Black */</code>
+                                        <div class="visual-example">
+                                            <div class="font-weight-examples">
+                                                <p class="font-weight-300">Peso 300 (Light)</p>
+                                                <p class="font-weight-400">Peso 400 (Regular)</p>
+                                                <p class="font-weight-500">Peso 500 (Medium)</p>
+                                                <p class="font-weight-700">Peso 700 (Bold)</p>
+                                                <p class="font-weight-900">Peso 900 (Black)</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="tip"><strong>Nota:</strong> No todas las fuentes tienen todos los pesos disponibles. Si se especifica un peso que no existe, el navegador usará el peso más cercano disponible.</p>
+                                </div>
+                                
+                                <div class="property animate-fade-in">
+                                    <h3>font-style</h3>
+                                    <p>Define el estilo de la fuente.</p>
+                                    <p><strong>Valores posibles:</strong> normal, italic, oblique</p>
+                                    <div class="example">
+                                        <code>/* Estilo normal */
+.elemento { font-style: normal; }
+
+/* Estilo itálico */
+.elemento { font-style: italic; }
+
+/* Estilo oblicuo */
+.elemento { font-style: oblique; }</code>
+                                        <div class="visual-example">
+                                            <div class="font-style-examples">
+                                                <p class="font-style-normal">Texto con estilo normal</p>
+                                                <p class="font-style-italic">Texto con estilo italic</p>
+                                                <p class="font-style-oblique">Texto con estilo oblique</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="tip"><strong>Diferencia:</strong> italic es una versión diseñada específicamente de la fuente, mientras que oblique es una versión inclinada artificialmente de la fuente normal.</p>
+                                </div>
+                                
+                                <div class="property animate-fade-in">
+                                    <h3>line-height</h3>
+                                    <p>Define la altura de línea o interlineado.</p>
+                                    <p><strong>Valores posibles:</strong> normal, número (sin unidad), longitud (px, em, rem), porcentaje (%)</p>
+                                    <div class="example">
+                                        <code>/* Valor predeterminado */
+.elemento { line-height: normal; }
+
+/* Número sin unidad (recomendado) */
+.elemento { line-height: 1.5; }
+
+/* Longitud específica */
+.elemento { line-height: 24px; }
+
+/* Porcentaje */
+.elemento { line-height: 150%; }</code>
+                                        <div class="visual-example">
+                                            <div class="line-height-examples">
+                                                <p class="line-height-1">Texto con line-height: 1<br>Segunda línea de texto para mostrar el interlineado</p>
+                                                <p class="line-height-1-5">Texto con line-height: 1.5<br>Segunda línea de texto para mostrar el interlineado</p>
+                                                <p class="line-height-2">Texto con line-height: 2<br>Segunda línea de texto para mostrar el interlineado</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="tip"><strong>Práctica recomendada:</strong> Usa un número sin unidad para line-height, ya que este valor se hereda proporcionalmente, lo que facilita mantener una jerarquía tipográfica coherente.</p>
+                                </div>
+                                
+                                <div class="property animate-fade-in">
+                                    <h3>font (propiedad abreviada)</h3>
+                                    <p>Permite establecer varias propiedades de fuente en una sola declaración.</p>
+                                    <p><strong>Orden:</strong> font-style font-variant font-weight font-size/line-height font-family</p>
+                                    <div class="example">
+                                        <code>/* Sintaxis completa */
+.elemento { 
+    font: italic bold 16px/1.5 'Roboto', sans-serif; 
+}
+
+/* Sintaxis mínima (solo tamaño y familia) */
+.elemento { 
+    font: 16px 'Roboto', sans-serif; 
+}</code>
+                                        <div class="visual-example">
+                                            <p class="font-shorthand-example">Texto con font: italic bold 18px/1.6 'Roboto', sans-serif</p>
+                                        </div>
+                                    </div>
+                                    <p class="tip"><strong>Nota:</strong> Al usar la propiedad abreviada font, los valores omitidos se restablecen a sus valores iniciales. Solo font-size y font-family son obligatorios.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Página de Misc (Misceláneas) -->
+                    <div class="page" id="misc">
+                        <div class="page-content">
+                            <h2 class="animate-title">Propiedades Misceláneas</h2>
+                            <p class="intro-text">Estas propiedades controlan diversos aspectos de la presentación que no encajan en otras categorías, como la visibilidad, el cursor, o el comportamiento de desbordamiento.</p>
+                            
+                            <div class="property-list">
+                                <div class="property animate-fade-in">
+                                    <h3>opacity</h3>
+                                    <p>Controla la transparencia de un elemento.</p>
+                                    <p><strong>Valores posibles:</strong> número entre 0 y 1</p>
+                                    <div class="example">
+                                        <code>/* Completamente opaco (predeterminado) */
+.elemento { opacity: 1; }
+
+/* Semitransparente */
+.elemento { opacity: 0.5; }
+
+/* Completamente transparente (invisible) */
+.elemento { opacity: 0; }</code>
+                                        <div class="visual-example">
+                                            <div class="opacity-examples">
+                                                <div class="box opacity-1">1.0</div>
+                                                <div class="box opacity-0-7">0.7</div>
+                                                <div class="box opacity-0-3">0.3</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="tip"><strong>Nota:</strong> La propiedad opacity afecta a todo el elemento y sus descendientes. Para aplicar transparencia solo al color de fondo, usa rgba() o hsla().</p>
+                                </div>
+                                
+                                <div class="property animate-fade-in">
+                                    <h3>cursor</h3>
+                                    <p>Define el tipo de cursor que se muestra cuando el puntero está sobre un elemento.</p>
+                                    <p><strong>Valores posibles:</strong> auto, default, pointer, text, move, not-allowed, grab, zoom-in, etc.</p>
+                                    <div class="example">
+                                        <code>/* Cursor predeterminado */
+.elemento { cursor: default; }
+
+/* Cursor de mano (para elementos clickeables) */
+.elemento { cursor: pointer; }
+
+/* Cursor de texto */
+.elemento { cursor: text; }
+
+/* Cursor de prohibido */
+.elemento { cursor: not-allowed; }
+
+/* Cursor personalizado */
+.elemento { cursor: url('mi-cursor.png'), auto; }</code>
+                                        <div class="visual-example">
+                                            <div class="cursor-examples">
+                                                <div class="cursor-box cursor-default">default</div>
+                                                <div class="cursor-box cursor-pointer">pointer</div>
+                                                <div class="cursor-box cursor-text">text</div>
+                                                <div class="cursor-box cursor-not-allowed">not-allowed</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="tip"><strong>Caso de uso:</strong> Usa cursor: pointer para elementos que realizan una acción al hacer clic, como botones o enlaces.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Página de Layouts/Flexbox -->
+                    <div class="page" id="layouts">
+                        <div class="page-content">
+                            <h2 class="animate-title">Layouts con Flexbox</h2>
+                            <p class="intro-text">Flexbox es un modelo de diseño unidimensional que permite crear diseños flexibles y responsivos con facilidad.</p>
+                            
+                            <div class="property-list">
+                                <div class="property animate-fade-in">
+                                    <h3>display: flex</h3>
+                                    <p>Convierte un elemento en un contenedor flex, permitiendo que sus hijos se comporten como elementos flexibles.</p>
+                                    <div class="example">
+                                        <code>.contenedor {
+    display: flex;
+}</code>
+                                        <div class="visual-example">
+                                            <div class="flex-container">
+                                                <div class="flex-item">1</div>
+                                                <div class="flex-item">2</div>
+                                                <div class="flex-item">3</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="tip"><strong>Nota:</strong> Por defecto, los elementos flex se colocan en una fila horizontal.</p>
+                                </div>
+                                
+                                <div class="property animate-fade-in">
+                                    <h3>flex-direction</h3>
+                                    <p>Define la dirección principal en la que se colocan los elementos flex.</p>
+                                    <p><strong>Valores posibles:</strong> row, row-reverse, column, column-reverse</p>
+                                    <div class="example">
+                                        <code>/* De izquierda a derecha (predeterminado) */
+.contenedor { flex-direction: row; }
+
+/* De derecha a izquierda */
+.contenedor { flex-direction: row-reverse; }
+
+/* De arriba a abajo */
+.contenedor { flex-direction: column; }
+
+/* De abajo a arriba */
+.contenedor { flex-direction: column-reverse; }</code>
+                                        <div class="visual-example">
+                                            <div class="flex-direction-examples">
+                                                <div class="flex-container flex-row">
+                                                    <div class="flex-item">1</div>
+                                                    <div class="flex-item">2</div>
+                                                    <div class="flex-item">3</div>
+                                                </div>
+                                                <div class="flex-container flex-column">
+                                                    <div class="flex-item">1</div>
+                                                    <div class="flex-item">2</div>
+                                                    <div class="flex-item">3</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="property animate-fade-in">
+                                    <h3>justify-content</h3>
+                                    <p>Define cómo se distribuyen los elementos a lo largo del eje principal.</p>
+                                    <p><strong>Valores posibles:</strong> flex-start, flex-end, center, space-between, space-around, space-evenly</p>
+                                    <div class="example">
+                                        <code>/* Al inicio del contenedor */
+.contenedor { justify-content: flex-start; }
+
+/* Al final del contenedor */
+.contenedor { justify-content: flex-end; }
+
+/* Centrados */
+.contenedor { justify-content: center; }
+
+/* Espacio entre elementos */
+.contenedor { justify-content: space-between; }
+
+/* Espacio alrededor de elementos */
+.contenedor { justify-content: space-around; }
+
+/* Espacio uniforme entre elementos */
+.contenedor { justify-content: space-evenly; }</code>
+                                        <div class="visual-example">
+                                            <div class="justify-content-examples">
+                                                <div class="flex-container justify-start">
+                                                    <div class="flex-item small">1</div>
+                                                    <div class="flex-item small">2</div>
+                                                    <div class="flex-item small">3</div>
+                                                </div>
+                                                <div class="flex-container justify-center">
+                                                    <div class="flex-item small">1</div>
+                                                    <div class="flex-item small">2</div>
+                                                    <div class="flex-item small">3</div>
+                                                </div>
+                                                <div class="flex-container justify-between">
+                                                    <div class="flex-item small">1</div>
+                                                    <div class="flex-item small">2</div>
+                                                    <div class="flex-item small">3</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="property animate-fade-in">
+                                    <h3>align-items</h3>
+                                    <p>Define cómo se alinean los elementos a lo largo del eje transversal.</p>
+                                    <p><strong>Valores posibles:</strong> flex-start, flex-end, center, baseline, stretch</p>
+                                    <div class="example">
+                                        <code>/* Al inicio del eje transversal */
+.contenedor { align-items: flex-start; }
+
+/* Al final del eje transversal */
+.contenedor { align-items: flex-end; }
+
+/* Centrados */
+.contenedor { align-items: center; }
+
+/* Alineados por la línea base del texto */
+.contenedor { align-items: baseline; }
+
+/* Estirados para llenar el contenedor (predeterminado) */
+.contenedor { align-items: stretch; }</code>
+                                        <div class="visual-example">
+                                            <div class="align-items-examples">
+                                                <div class="flex-container align-start">
+                                                    <div class="flex-item">1</div>
+                                                    <div class="flex-item tall">2</div>
+                                                    <div class="flex-item">3</div>
+                                                </div>
+                                                <div class="flex-container align-center">
+                                                    <div class="flex-item">1</div>
+                                                    <div class="flex-item tall">2</div>
+                                                    <div class="flex-item">3</div>
+                                                </div>
+                                                <div class="flex-container align-end">
+                                                    <div class="flex-item">1</div>
+                                                    <div class="flex-item tall">2</div>
+                                                    <div class="flex-item">3</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="property animate-fade-in">
+                                    <h3>flex-wrap</h3>
+                                    <p>Define si los elementos flex deben ajustarse en una sola línea o pueden fluir en varias líneas.</p>
+                                    <p><strong>Valores posibles:</strong> nowrap, wrap, wrap-reverse</p>
+                                    <div class="example">
+                                        <code>/* Sin ajuste (predeterminado) */
+.contenedor { flex-wrap: nowrap; }
+
+/* Ajustar a múltiples líneas */
+.contenedor { flex-wrap: wrap; }
+
+/* Ajustar a múltiples líneas en orden inverso */
+.contenedor { flex-wrap: wrap-reverse; }</code>
+                                        <div class="visual-example">
+                                            <div class="flex-wrap-examples">
+                                                <div class="flex-container flex-nowrap">
+                                                    <div class="flex-item">1</div>
+                                                    <div class="flex-item">2</div>
+                                                    <div class="flex-item">3</div>
+                                                    <div class="flex-item">4</div>
+                                                    <div class="flex-item">5</div>
+                                                    <div class="flex-item">6</div>
+                                                </div>
+                                                <div class="flex-container flex-wrap">
+                                                    <div class="flex-item">1</div>
+                                                    <div class="flex-item">2</div>
+                                                    <div class="flex-item">3</div>
+                                                    <div class="flex-item">4</div>
+                                                    <div class="flex-item">5</div>
+                                                    <div class="flex-item">6</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="property animate-fade-in">
+                                    <h3>flex (propiedad de los elementos hijos)</h3>
+                                    <p>Propiedad abreviada que define cómo un elemento flex puede crecer o reducirse.</p>
+                                    <p><strong>Componentes:</strong> flex-grow, flex-shrink, flex-basis</p>
+                                    <div class="example">
+                                        <code>/* Sintaxis completa */
+.elemento { flex: grow shrink basis; }
+
+/* Ejemplos comunes */
+.elemento { flex: 1; } /* Puede crecer y reducirse, basis auto */
+.elemento { flex: 0 1 auto; } /* No crece, puede reducirse, basis auto */
+.elemento { flex: 1 0 200px; } /* Puede crecer, no se reduce, basis 200px */</code>
+                                        <div class="visual-example">
+                                            <div class="flex-container">
+                                                <div class="flex-item flex-1">flex: 1</div>
+                                                <div class="flex-item flex-2">flex: 2</div>
+                                                <div class="flex-item flex-1">flex: 1</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="tip"><strong>Caso de uso:</strong> flex: 1 es muy útil para crear diseños donde los elementos ocupan proporciones iguales del espacio disponible.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Página de Grid CSS -->
+                    <div class="page" id="grid">
+                        <div class="page-content">
+                            <h2 class="animate-title">Grid CSS</h2>
+                            <p class="intro-text">Grid CSS es un sistema de diseño bidimensional que permite crear layouts complejos con filas y columnas.</p>
+                            
+                            <div class="property-list">
+                                <div class="property animate-fade-in">
+                                    <h3>display: grid</h3>
+                                    <p>Convierte un elemento en un contenedor de cuadrícula.</p>
+                                    <div class="example">
+                                        <code>.contenedor {
+    display: grid;
+}</code>
+                                        <div class="visual-example">
+                                            <div class="grid-container">
+                                                <div class="grid-item">1</div>
+                                                <div class="grid-item">2</div>
+                                                <div class="grid-item">3</div>
+                                                <div class="grid-item">4</div>
+                                                <div class="grid-item">5</div>
+                                                <div class="grid-item">6</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="property animate-fade-in">
+                                    <h3>grid-template-columns / grid-template-rows</h3>
+                                    <p>Define el número y tamaño de las columnas y filas en una cuadrícula.</p>
+                                    <div class="example">
+                                        <code>/* Tres columnas de igual tamaño */
+.contenedor { grid-template-columns: 1fr 1fr 1fr; }
+
+/* Sintaxis repeat */
+.contenedor { grid-template-columns: repeat(3, 1fr); }
+
+/* Columnas de diferentes tamaños */
+.contenedor { grid-template-columns: 100px 2fr 1fr; }
+
+/* Filas */
+.contenedor { grid-template-rows: 100px auto 200px; }
+
+/* Combinación de filas y columnas */
+.contenedor {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 100px 200px;
+}</code>
+                                        <div class="visual-example">
+                                            <div class="grid-template-examples">
+                                                <div class="grid-container grid-3-equal">
+                                                    <div class="grid-item">1</div>
+                                                    <div class="grid-item">2</div>
+                                                    <div class="grid-item">3</div>
+                                                </div>
+                                                <div class="grid-container grid-3-different">
+                                                    <div class="grid-item">1</div>
+                                                    <div class="grid-item">2</div>
+                                                    <div class="grid-item">3</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="tip"><strong>Unidad fr:</strong> La unidad fr representa una fracción del espacio disponible. Es similar a flex-grow en Flexbox.</p>
+                                </div>
+                                
+                                <div class="property animate-fade-in">
+                                    <h3>grid-gap / gap</h3>
+                                    <p>Define el espacio entre filas y columnas.</p>
+                                    <div class="example">
+                                        <code>/* Espacio igual entre filas y columnas */
+.contenedor { gap: 20px; }
+
+/* Espacio diferente para filas y columnas */
+.contenedor {
+    row-gap: 20px;
+    column-gap: 10px;
+}
+
+/* Sintaxis antigua (aún compatible) */
+.contenedor { grid-gap: 20px; }</code>
+                                        <div class="visual-example">
+                                            <div class="grid-gap-examples">
+                                                <div class="grid-container grid-no-gap">
+                                                    <div class="grid-item">1</div>
+                                                    <div class="grid-item">2</div>
+                                                    <div class="grid-item">3</div>
+                                                    <div class="grid-item">4</div>
+                                                </div>
+                                                <div class="grid-container grid-with-gap">
+                                                    <div class="grid-item">1</div>
+                                                    <div class="grid-item">2</div>
+                                                    <div class="grid-item">3</div>
+                                                    <div class="grid-item">4</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="property animate-fade-in">
+                                    <h3>grid-column / grid-row</h3>
+                                    <p>Define la ubicación y el tamaño de un elemento dentro de la cuadrícula.</p>
+                                    <div class="example">
+                                        <code>/* Ubicación específica */
+.elemento {
+    grid-column: 2 / 3;
+    grid-row: 1 / 2;
+}
+
+/* Abarcar múltiples celdas */
+.elemento {
+    grid-column: 1 / 3; /* De la línea 1 a la 3 (2 columnas) */
+    grid-row: 2 / 4; /* De la línea 2 a la 4 (2 filas) */
+}
+
+/* Sintaxis span */
+.elemento {
+    grid-column: 1 / span 2; /* Comienza en 1 y abarca 2 columnas */
+    grid-row: span 2; /* Abarca 2 filas */
+}</code>
+                                        <div class="visual-example">
+                                            <div class="grid-position-examples">
+                                                <div class="grid-container grid-position">
+                                                    <div class="grid-item">1</div>
+                                                    <div class="grid-item">2</div>
+                                                    <div class="grid-item grid-span">3</div>
+                                                    <div class="grid-item">4</div>
+                                                    <div class="grid-item">5</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="tip"><strong>Líneas de cuadrícula:</strong> Las líneas de cuadrícula se numeran comenzando desde 1. Una cuadrícula de 3 columnas tiene 4 líneas de cuadrícula.</p>
+                                </div>
+                                
+                                <div class="property animate-fade-in">
+                                    <h3>grid-template-areas</h3>
+                                    <p>Define áreas con nombre en la cuadrícula para una colocación más intuitiva.</p>
+                                    <div class="example">
+                                        <code>.contenedor {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: auto 1fr auto;
+    grid-template-areas:
+        "header header"
+        "sidebar content"
+        "footer footer";
+}
+
+.header { grid-area: header; }
+.sidebar { grid-area: sidebar; }
+.content { grid-area: content; }
+.footer { grid-area: footer; }</code>
+                                        <div class="visual-example">
+                                            <div class="grid-areas-example">
+                                                <div class="grid-area header">Header</div>
+                                                <div class="grid-area sidebar">Sidebar</div>
+                                                <div class="grid-area content">Content</div>
+                                                <div class="grid-area footer">Footer</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="tip"><strong>Ventaja:</strong> grid-template-areas hace que el código sea más legible y facilita la visualización de la estructura de la página.</p>
+                                </div>
+                                
+                                <div class="property animate-fade-in">
+                                    <h3>minmax() y auto-fill/auto-fit</h3>
+                                    <p>Funciones que permiten crear diseños responsivos con Grid.</p>
+                                    <div class="example">
+                                        <code>/* Columnas que tienen al menos 100px y máximo 1fr */
+.contenedor {
+    grid-template-columns: repeat(3, minmax(100px, 1fr));
+}
+
+/* Diseño responsivo con auto-fill */
+.contenedor {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+
+/* Diseño responsivo con auto-fit */
+.contenedor {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}</code>
+                                        <div class="visual-example">
+                                            <div class="grid-container grid-responsive">
+                                                <div class="grid-item">1</div>
+                                                <div class="grid-item">2</div>
+                                                <div class="grid-item">3</div>
+                                                <div class="grid-item">4</div>
+                                                <div class="grid-item">5</div>
+                                                <div class="grid-item">6</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="tip"><strong>Diferencia:</strong> auto-fill mantiene el número de columnas incluso si están vacías, mientras que auto-fit colapsa las columnas vacías.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Página de Effects -->
+                    <div class="page" id="effects">
+                        <div class="page-content">
+                            <h2 class="animate-title">Efectos Visuales</h2>
+                            <p class="intro-text">CSS3 introdujo varias propiedades para crear efectos visuales avanzados sin necesidad de imágenes o JavaScript.</p>
+                            
+                            <div class="property-list">
+                                <div class="property animate-fade-in">
+                                    <h3>box-shadow</h3>
+                                    <p>Añade una o más sombras a un elemento.</p>
+                                    <p><strong>Valores:</strong> desplazamiento-x desplazamiento-y difuminado propagación color inset</p>
+                                    <div class="example">
+                                        <code>/* Sombra básica */
+.elemento { box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); }
+
+/* Sombra con propagación */
+.elemento { box-shadow: 0 4px 8px 2px rgba(0, 0, 0, 0.2); }
+
+/* Sombra interna */
+.elemento { box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5); }
+
+/* Múltiples sombras */
+.elemento { 
+    box-shadow: 
+        0 2px 4px rgba(0, 0, 0, 0.2),
+        0 8px 16px rgba(0, 0, 0, 0.1); 
+}</code>
+                                        <div class="visual-example">
+                                            <div class="shadow-examples">
+                                                <div class="box shadow-basic">Básica</div>
+                                                <div class="box shadow-spread">Con propagación</div>
+                                                <div class="box shadow-inset">Interna</div>
+                                                <div class="box shadow-multiple">Múltiple</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="tip"><strong>Caso de uso:</strong> Las sombras múltiples pueden crear efectos de profundidad más realistas, como la "elevación" en Material Design.</p>
+                                </div>
+                                
+                                <div class="property animate-fade-in">
+                                    <h3>text-shadow</h3>
+                                    <p>Añade sombra al texto.</p>
+                                    <p><strong>Valores:</strong> desplazamiento-x desplazamiento-y difuminado color</p>
+                                    <div class="example">
+                                        <code>/* Sombra básica */
+.elemento { text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); }
+
+/* Sombra con más difuminado */
+.elemento { text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); }
+
+/* Sombra de resplandor */
+.elemento { text-shadow: 0 0 5px rgba(0, 100, 255, 0.8); }
+
+/* Múltiples sombras */
+.elemento { 
+    text-shadow: 
+        1px 1px 0 #000,
+        -1px -1px 0 #000; 
+}</code>
+                                        <div class="visual-example">
+                                            <div class="text-shadow-examples">
+                                                <p class="text-shadow-basic">Sombra básica</p>
+                                                <p class="text-shadow-blur">Sombra difuminada</p>
+                                                <p class="text-shadow-glow">Resplandor</p>
+                                                <p class="text-shadow-outline">Contorno</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="tip"><strong>Consejo:</strong> Para mejorar la legibilidad del texto sobre imágenes, añade una sombra sutil que cree contraste con el fondo.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Página de Responsive -->
+                    <div class="page" id="responsive">
+                        <div class="page-content">
+                            <h2 class="animate-title">Diseño Responsive</h2>
+                            <p class="intro-text">El diseño responsive permite que los sitios web se adapten a diferentes tamaños de pantalla y dispositivos, proporcionando una experiencia óptima para todos los usuarios.</p>
+                            
+                            <div class="property-list">
+                                <div class="property animate-fade-in">
+                                    <h3>@media</h3>
+                                    <p>Regla at que permite aplicar estilos basados en características del dispositivo o del navegador.</p>
+                                    <p><strong>Características comunes:</strong> width, height, orientation, aspect-ratio, resolution</p>
+                                    <div class="example">
+                                        <code>/* Estilos para pantallas pequeñas */
+@media (max-width: 600px) {
+    .elemento {
+        width: 100%;
+        font-size: 14px;
+    }
+}
+
+/* Estilos para pantallas medianas */
+@media (min-width: 601px) and (max-width: 1024px) {
+    .elemento {
+        width: 50%;
+        font-size: 16px;
+    }
+}
+
+/* Estilos para orientación horizontal */
+@media (orientation: landscape) {
+    .elemento {
+        display: flex;
+    }
+}
+
+/* Estilos para dispositivos de alta resolución */
+@media (min-resolution: 2dppx) {
+    .imagen {
+        background-image: url('imagen@2x.jpg');
+    }
+}</code>
+                                        <div class="visual-example">
+                                            <div class="media-query-example">
+                                                <p>Redimensiona la ventana para ver cómo cambia este elemento</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p class="tip"><strong>Enfoque:</strong> Es recomendable utilizar un enfoque "mobile-first", donde se diseña primero para dispositivos móviles y luego se añaden estilos para pantallas más grandes con @media (min-width: ...).</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Página de Animaciones -->
+                    <div class="page" id="animation">
+                        <div class="page-content">
+                            <h2 class="animate-title">Animaciones</h2>
+                            <p class="intro-text">Las animaciones CSS permiten crear transiciones y cambios de estado sin necesidad de JavaScript.</p>
+                            
+                            <div class="property-list">
+                                <div class="property animate-fade-in">
+                                    <h3>@keyframes</h3>
+                                    <p>Define los estados de una animación en diferentes puntos del tiempo.</p>
+                                    <div class="example">
+                                        <code>/* Definición básica con from/to */
+@keyframes slide {
+    from { transform: translateX(0); }
+    to { transform: translateX(100px); }
+}
+
+/* Definición con porcentajes */
+@keyframes bounce {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0); }
+}
+
+/* Múltiples propiedades */
+@keyframes fade-move {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}</code>
+                                    </div>
+                                    <p class="tip"><strong>Consejo:</strong> Puedes animar casi cualquier propiedad CSS, pero las más eficientes son transform y opacity.</p>
+                                </div>
+                                
+                                <div class="property animate-fade-in">
+                                    <h3>animation</h3>
+                                    <p>Propiedad abreviada para aplicar animaciones a un elemento.</p>
+                                    <p><strong>Componentes:</strong> animation-name, animation-duration, animation-timing-function, animation-delay, animation-iteration-count, animation-direction, animation-fill-mode, animation-play-state</p>
+                                    <div class="example">
+                                        <code>/* Sintaxis básica */
+.elemento { animation: nombre duración timing-function delay iteraciones dirección fill-mode play-state; }
+
+/* Ejemplo simple */
+.elemento { animation: slide 2s ease 0s infinite normal forwards running; }
+
+/* Ejemplo abreviado */
+.elemento { animation: slide 2s ease infinite; }
+
+/* Múltiples animaciones */
+.elemento { animation: slide 2s ease, fade 3s linear; }</code>
+                                        <div class="visual-example">
+                                            <div class="box animation-example" title="Animación en ejecución"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="property animate-fade-in">
+                                    <h3>animation-timing-function</h3>
+                                    <p>Define cómo progresa la animación a lo largo de su duración.</p>
+                                    <p><strong>Valores posibles:</strong> ease, linear, ease-in, ease-out, ease-in-out, cubic-bezier(), steps()</p>
+                                    <div class="example">
+                                        <code>/* Aceleración y desaceleración suave (predeterminado) */
+.elemento { animation-timing-function: ease; }
+
+/* Velocidad constante */
+.elemento { animation-timing-function: linear; }
+
+/* Aceleración inicial */
+.elemento { animation-timing-function: ease-in; }
+
+/* Desaceleración final */
+.elemento { animation-timing-function: ease-out; }
+
+/* Aceleración inicial y desaceleración final */
+.elemento { animation-timing-function: ease-in-out; }
+
+/* Curva personalizada */
+.elemento { animation-timing-function: cubic-bezier(0.42, 0, 0.58, 1); }
+
+/* Animación por pasos */
+.elemento { animation-timing-function: steps(5, end); }</code>
+                                        <div class="visual-example">
+                                            <div class="timing-functions-container">
+                                                <div class="box timing-ease">ease</div>
+                                                <div class="box timing-linear">linear</div>
+                                                <div class="box timing-ease-in">ease-in</div>
+                                                <div class="box timing-ease-out">ease-out</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Más páginas pueden ser agregadas aquí -->
+                </div>
+
+                <!-- Controles de navegación -->
+                <div class="navigation">
+                    <button class="prev-btn" disabled>Anterior</button>
+                    <button class="next-btn">Siguiente</button>
+                </div>
+            </div>
+        </main>
+
+        <footer class="animate-fade-in">
+            <p>Libro Digital Interactivo de CSS3 &copy; 2025 | | Rubiela Beleño</p>
+        </footer>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
